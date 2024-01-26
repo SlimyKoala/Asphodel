@@ -1,2 +1,2 @@
 # Asphodel
- baaaaby shark doo doo doo doo doo doo baby shark ooooo
+ A simple Rat Game about shooting harpies
