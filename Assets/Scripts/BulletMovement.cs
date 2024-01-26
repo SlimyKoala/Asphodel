@@ -55,6 +55,8 @@ public class BulletMovement : MonoBehaviour
                         if(enemyAI != null)
                         {
                             enemyAI.SetDamaged();
+                            
+
                         }
                         
                         float explosionForce = explosionBaseForce / distVector.magnitude;
