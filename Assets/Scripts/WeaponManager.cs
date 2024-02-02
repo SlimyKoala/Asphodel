@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
-    GameObject[] weaponList;
+    List<GameObject> weaponList;
     int weaponIdx;
     [SerializeField] GameObject weaponHolder;
     Shooting currentGun;
@@ -13,11 +13,11 @@ public class WeaponManager : MonoBehaviour
     void Start()
     {
         weaponCount = weaponHolder.transform.childCount;
-        weaponList = new GameObject[weaponCount];
+        weaponList = new List<GameObject>();
 
         for (int i = 0; i < weaponCount; i++)
         {
-            weaponList[i] = weaponHolder.transform.GetChild(i).gameObject;
+            weaponList.Add(weaponHolder.transform.GetChild(i).gameObject);
             weaponList[i].SetActive(false);
         }
 
@@ -54,6 +54,23 @@ public class WeaponManager : MonoBehaviour
         weaponIdx = newWeaponIdx;
         weaponList[weaponIdx].SetActive(true);
         currentGun = weaponList[weaponIdx].GetComponent<Shooting>();
+    }
+
+    public void AddWeapon(GameObject gameObject, bool setAsCurrent=false)
+    {
+        weaponList.Add(gameObject);
+        gameObject.transform.parent = weaponHolder.transform;
+        weaponCount++;
+        gameObject.transform.localPosition = new(0, 0, 0);
+
+        if (setAsCurrent)
+        {
+            SetWeapon(weaponCount - 1);
+        }
+        else
+        {
+            weaponList[weaponCount - 1].SetActive(false);
+        }
     }
 
 
