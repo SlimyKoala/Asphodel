@@ -7,17 +7,22 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] float accelerationCoef = 1f;
     [SerializeField] float frictionCoef = 0.95f;
+    [SerializeField] HealthBar healthBar;
+
     private Rigidbody2D rb;
 
     WeaponManager weaponManager;
     private Dash dash;
     private Vector2 mousePointIngame;
+    
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         dash = GetComponent<Dash>();
         weaponManager = GetComponent<WeaponManager>();
+        Debug.Log((int)GetComponent<HPController>().GetMaxHP());
+        healthBar.SetMaxHealth((int)GetComponent<HPController>().GetMaxHP());
     }
 
     // Update is called once per frame
@@ -28,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         
         Move();
         ManageDash();
+        ManageHealthBar();
     }
 
     private void Move()
@@ -45,5 +51,17 @@ public class PlayerMovement : MonoBehaviour
         {
             dash.DoDash(playerToMouseVector);
         }
+    }
+
+    private void ManageHealthBar()
+    {
+        healthBar.SetHealth((int) GetComponent<HPController>().GetHP());
+        Debug.Log((int)GetComponent<HPController>().GetHP());
+    }
+
+
+    private void OnDestroy()
+    {
+        healthBar.SetHealth(0);
     }
 }
