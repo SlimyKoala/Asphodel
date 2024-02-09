@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PickableItem : MonoBehaviour
 {
+    [SerializeField] string pickupType;
+    [SerializeField] float hpToHeal = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,10 +15,14 @@ public class PickableItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collision enabled");
         if (collision.gameObject.GetComponent<PickUpManager>())
         {
-            collision.gameObject.GetComponent<PickUpManager>().Pick(this);
+            collision.gameObject.GetComponent<PickUpManager>().Pick(this, pickupType, hpToHeal);
+
+            if(pickupType != "weapon")
+            {
+                Destroy(gameObject);
+            }
         }
     }
 

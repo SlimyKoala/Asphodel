@@ -5,12 +5,14 @@ using UnityEngine;
 public class PickUpManager : MonoBehaviour
 {
     WeaponManager weaponManager;
+    HPController hpController;
 
 
     // Start is called before the first frame update
     void Start()
     {
         weaponManager = GetComponent<WeaponManager>();
+        hpController = GetComponent<HPController>();
     }
 
     // Update is called once per frame
@@ -19,9 +21,14 @@ public class PickUpManager : MonoBehaviour
         
     }
 
-    public void Pick(PickableItem item)
+    public void Pick(PickableItem item, string type, float other)
     {
-        weaponManager.AddWeapon(item.gameObject, true);
-        Debug.Log("Funkcja Pick dzia³a");
+        if (type == "weapon")
+            weaponManager.AddWeapon(item.gameObject, true);
+
+        else
+            hpController.Heal(other);
+
+
     }
 }
