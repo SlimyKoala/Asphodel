@@ -36,6 +36,11 @@ public class HPController : MonoBehaviour
         return hp;
     }
 
+    public float GetMaxHP()
+    {
+        return maxHp;
+    }
+
     public float GetHPFraction()
     {
         return hp / maxHp;
