@@ -6,6 +6,7 @@ public class BulletMovement : MonoBehaviour
 {
     [SerializeField] float bulletSpeed;
     private Rigidbody2D rb;
+    [SerializeField] GameObject explosion;
 
     [SerializeField] float lifetime = 3;
     [SerializeField] float damage = 2;
@@ -41,6 +42,7 @@ public class BulletMovement : MonoBehaviour
 
         if (isExplosive)
         {
+            Instantiate(explosion, transform.position, transform.rotation);
             Vector2 explosionCenter = transform.position;
             Collider2D[] colliders = Physics2D.OverlapCircleAll(explosionCenter, explosionRange);
             foreach(Collider2D collider in colliders)
