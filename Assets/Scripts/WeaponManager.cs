@@ -33,7 +33,11 @@ public class WeaponManager : MonoBehaviour
         currentGun.RotateTowardPoint(mousePointIngame);
         if (Input.GetButton("Fire1"))
         {
-            currentGun.Shoot();
+            bool result = currentGun.Shoot();
+            if (result)
+            {
+                EnemyEvents.fireEvent.Invoke(transform.position);
+            }
         }
 
         

@@ -8,11 +8,15 @@ public static class EnemyEvents
     public static UnityEvent scoreEvent = new UnityEvent();
     public static ScoreAdvancedEvent scoreAdvancedEvent = new();
     public static HitEvent hitEvent = new();
+
+    public static FireEvent fireEvent = new();
 }
 
 public class ScoreAdvancedEvent : UnityEvent<int> { }
 
 public class HitEvent : UnityEvent<HitEventData> { }
+
+public class FireEvent: UnityEvent<Vector2> { }
 
 public class HitEventData
 {

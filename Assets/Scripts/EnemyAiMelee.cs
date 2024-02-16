@@ -14,6 +14,10 @@ public class EnemyAiMelee : MonoBehaviour
     AIPath aiPath;
     bool canSeeTarget;
 
+    private void Awake()
+    {
+        EnemyEvents.fireEvent.AddListener(ListenToTarget);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -70,12 +74,6 @@ public class EnemyAiMelee : MonoBehaviour
 
     }
 
-    //private void ManageWeapon()
-    //{
-    //    weapon.RotateTowardPoint(target.position);
-    //    weapon.Shoot();
-    //}
-
     private void OnDestroy()
     {
         EnemyEvents.scoreAdvancedEvent.Invoke(Random.Range(9, 13) * 10);
@@ -99,5 +97,10 @@ public class EnemyAiMelee : MonoBehaviour
             target.GetComponent<HPController>().TakeDamage(20);
             target.GetComponent<Rigidbody2D>().AddForce((target.position - transform.position).normalized * 1000);
         }
+    }
+
+    private void ListenToTarget(Vector2 position)
+    {
+        pathfindingTarget.position = position;
     }
 }

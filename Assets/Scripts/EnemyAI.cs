@@ -17,6 +17,11 @@ public class EnemyAI : MonoBehaviour
 
     bool canSeeTarget;
 
+    private void Awake()
+    {
+        EnemyEvents.fireEvent.AddListener(ListenToTarget);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -87,5 +92,10 @@ public class EnemyAI : MonoBehaviour
     private void OnDestroy()
     {
         EnemyEvents.scoreAdvancedEvent.Invoke(Random.Range(8, 12) * 10);
+    }
+
+    private void ListenToTarget(Vector2 position)
+    {
+        pathfindingTarget.position = position;
     }
 }

@@ -25,7 +25,7 @@ public class Shooting : MonoBehaviour
         bulletSpawner = transform.GetChild(0);
     }
     
-    public void Shoot()
+    public bool Shoot()
     {
         if(Time.time - lastTimeFired > 1 / firerate)
         {
@@ -44,7 +44,9 @@ public class Shooting : MonoBehaviour
             
             canFire = false;
             lastTimeFired = Time.time;
+            return true;
         }
+        return false;
 
     }
 
