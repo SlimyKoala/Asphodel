@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
 
@@ -56,12 +56,16 @@ public class PlayerMovement : MonoBehaviour
     private void ManageHealthBar()
     {
         healthBar.SetHealth((int) GetComponent<HPController>().GetHP());
-        Debug.Log((int)GetComponent<HPController>().GetHP());
     }
 
 
     private void OnDestroy()
     {
         healthBar.SetHealth(0);
+        TimerManager.active.AddTimer(
+            2, 
+            () => { SceneManager.LoadScene(0); }, 
+            false
+        );
     }
 }
