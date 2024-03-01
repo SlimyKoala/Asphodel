@@ -4825,7 +4825,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -32.75, y: 19.73}
+  m_AnchoredPosition: {x: -32.68, y: 20.44}
   m_SizeDelta: {x: 11.0309, y: 7.3814}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1833010395
@@ -4850,7 +4850,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'You can perform a dash
 
-    by pressing SPACE'
+    by pressing SPACE. You may find spikes on
+    the map, which you need to dash over to get through!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 058fda837ed19814d9f5b743389f59b8, type: 2}
   m_sharedMaterial: {fileID: -3366516844978109302, guid: 058fda837ed19814d9f5b743389f59b8, type: 2}
