@@ -17,6 +17,7 @@ public class HPController : MonoBehaviour
     {
 
         hp -= damage;
+        AudioManager.instance.Play("damage");
         if (hp <= 0)
         {
             isDead = true;

@@ -41,7 +41,7 @@ public class Shooting : MonoBehaviour
                 ApplyBulletSpread(tempBullet);
             }
 
-            
+            AudioManager.instance.Play("shot");
             canFire = false;
             lastTimeFired = Time.time;
             return true;
