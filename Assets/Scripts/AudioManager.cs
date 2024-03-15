@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
@@ -8,6 +10,10 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
+    [SerializeField] Slider volumeMusicSlider;
+    [SerializeField] Slider volumeSoundSlider;
+
+    [SerializeField] AudioMixer audioMixer;
 
     private void Awake()
     {
@@ -29,12 +35,68 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+            s.source.outputAudioMixerGroup = s.audioMixerGroup;
         }
+
+        volumeMusicSlider.onValueChanged.AddListener(SetMusicVolume);
+        volumeSoundSlider.onValueChanged.AddListener(SetSoundVolume);
     }
+
+    void Start()
+    {
+
+        if (!PlayerPrefs.HasKey("musicVolume"))
+        {
+            PlayerPrefs.SetFloat("musicVolume", 1);
+        }
+        if (!PlayerPrefs.HasKey("soundVolume"))
+        {
+            PlayerPrefs.SetFloat("soundVolume", 1);
+        }
+        Load();
+
+
+    }
+
 
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.Play();
     }
+
+    private void Load()
+    {
+        volumeMusicSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        volumeSoundSlider.value = PlayerPrefs.GetFloat("soundVolume");
+        audioMixer.SetFloat("MusicSound", Mathf.Log10(volumeMusicSlider.value) * 20);
+        audioMixer.SetFloat("SfxSound", Mathf.Log10(volumeSoundSlider.value) * 20);
+    }
+
+    private void Save()
+    {
+        PlayerPrefs.SetFloat("musicVolume", volumeMusicSlider.value);
+        PlayerPrefs.SetFloat("soundVolume", volumeSoundSlider.value);
+    }
+
+    private void SetMusicVolume(float value)
+    {
+        audioMixer.SetFloat("MusicSound", Mathf.Log10(value) * 20);
+        Save();
+    }
+
+    private void SetSoundVolume(float value)
+    {
+        audioMixer.SetFloat("SfxSound", Mathf.Log10(value) * 20);
+        Save();
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        Debug.Log(GameObject.Find("MusicSlider"));
+        Debug.Log(GameObject.Find("SfxSlider"));
+        volumeMusicSlider = GameObject.Find("MusicSlider").GetComponent<Slider>();
+        volumeSoundSlider = GameObject.Find("SfxSlider").GetComponent<Slider>();
+    }
+
 }
