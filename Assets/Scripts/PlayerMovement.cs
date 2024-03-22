@@ -61,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDestroy()
     {
+        AudioManager.instance.Play("death");
         healthBar.SetHealth(0);
         TimerManager.active.AddTimer(
             2, 

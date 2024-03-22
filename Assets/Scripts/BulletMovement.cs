@@ -42,6 +42,7 @@ public class BulletMovement : MonoBehaviour
 
         if (isExplosive)
         {
+            AudioManager.instance.Play("explosion");
             Instantiate(explosion, transform.position, transform.rotation);
             Vector2 explosionCenter = transform.position;
             Collider2D[] colliders = Physics2D.OverlapCircleAll(explosionCenter, explosionRange);
