@@ -21,7 +21,6 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         dash = GetComponent<Dash>();
         weaponManager = GetComponent<WeaponManager>();
-        Debug.Log((int)GetComponent<HPController>().GetMaxHP());
         healthBar.SetMaxHealth((int)GetComponent<HPController>().GetMaxHP());
     }
 
@@ -29,6 +28,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (PauseMenu.isGamePaused)
+        {
+            return;
+        }
         mousePointIngame = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
         
         Move();

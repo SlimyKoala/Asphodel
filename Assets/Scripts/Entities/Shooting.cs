@@ -27,6 +27,11 @@ public class Shooting : MonoBehaviour
     
     public bool Shoot()
     {
+        if (PauseMenu.isGamePaused)
+        {
+            return false;
+        }
+
         if(Time.time - lastTimeFired > 1 / firerate)
         {
             canFire = true;

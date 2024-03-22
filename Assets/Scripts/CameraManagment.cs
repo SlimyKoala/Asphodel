@@ -27,6 +27,8 @@ public class CameraManagment : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (target == null) return;
+
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 targetCameraPosition = Vector3.Lerp(target.position, mousePosition, mouseLookControl) + new Vector3(0, 0, -10);
         transform.position = Vector3.Lerp(transform.position, targetCameraPosition, dampCoef * Time.fixedDeltaTime * 60);

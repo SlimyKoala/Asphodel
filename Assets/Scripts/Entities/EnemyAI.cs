@@ -25,7 +25,10 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.Find("Rat").transform;
+        if (GameObject.Find("Rat") != null)
+        {
+            target = GameObject.Find("Rat").transform;
+        }
         aiDestinationSetter = GetComponent<AIDestinationSetter>();
         aiDestinationSetter.target = pathfindingTarget;
 
@@ -36,7 +39,8 @@ public class EnemyAI : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
+    {   
+        if (target == null) return;
         Vector2 targetDirection = (target.position - transform.position).normalized;
 
         RaycastHit2D[] hitList = Physics2D.RaycastAll(transform.position, targetDirection * detectionRange);
