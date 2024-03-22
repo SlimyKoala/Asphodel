@@ -1034,7 +1034,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 98440166}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 425387790}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &98440166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2551,6 +2563,7 @@ GameObject:
   - component: {fileID: 425387788}
   - component: {fileID: 425387787}
   - component: {fileID: 425387786}
+  - component: {fileID: 425387790}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2642,6 +2655,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &425387790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425387785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b800d4decd0fe44c98f2bd46dd880fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuUI: {fileID: 573584674}
 --- !u!1 &441300173 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4599007325152536533, guid: 1827818473a4ea94c9f72b3491eafcd7, type: 3}
@@ -4746,7 +4772,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 817476093}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 425387790}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: Menu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &817476093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6979,7 +7017,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1282028784}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 425387790}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1282028784
 MonoBehaviour:
   m_ObjectHideFlags: 0
