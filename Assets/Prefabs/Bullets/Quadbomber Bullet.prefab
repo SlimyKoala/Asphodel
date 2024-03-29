@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -1827599153943313275}
   - component: {fileID: -2973938073076853101}
   m_Layer: 3
-  m_Name: Sniper Bullet
+  m_Name: Quadbomber Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.0105, y: 1.26, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 0.4236}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 0.4236}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e1edb46b65389324593bb6f7ce5c5f36, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3f5aef1f18311334da785226d813b25f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,14 +99,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef7dba9783f67574dab257d64b061ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 100
-  explosion: {fileID: 1626675548134260281, guid: 4d70cceddd3aa324a9447109be8834e1, type: 3}
-  lifetime: 0.5
-  damage: 15
+  bulletSpeed: 35
+  explosion: {fileID: 1626675548134260281, guid: 129ab8afe5fbb244da614a05d692178c, type: 3}
+  lifetime: 5
+  damage: 10
   isExplosive: 1
-  explosionRange: 5
-  explosionBaseForce: 4000
-  explosionDamageMult: 0.008
+  explosionRange: 10
+  explosionBaseForce: 2500
+  explosionDamageMult: 0.002
 --- !u!50 &-1827599153943313275
 Rigidbody2D:
   serializedVersion: 4
