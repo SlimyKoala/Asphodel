@@ -12,6 +12,7 @@ public class BulletMovement : MonoBehaviour
     [SerializeField] float damage = 2;
 
     [SerializeField] bool isExplosive = false;
+    [SerializeField] bool piercing = false;
     [SerializeField] float explosionRange = 8f;
     [SerializeField] float explosionBaseForce = 4000;
     [SerializeField] float explosionDamageMult = 0.05f;
@@ -76,6 +77,19 @@ public class BulletMovement : MonoBehaviour
         }
         
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("hit");
+        HPController controller = collision.transform.GetComponent<HPController>();
+        Debug.Log(collision.transform.name);
+        if (controller != null)
+        {
+            Debug.Log("FOR THE WIN! FCKU YEAH");
+            HitEventData hitEventData = new(owner, controller.gameObject, gameObject);
+            EnemyEvents.hitEvent.Invoke(hitEventData);
+        }
     }
 
     private void DestroyBullet()

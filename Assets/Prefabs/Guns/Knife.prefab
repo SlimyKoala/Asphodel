@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1016980029287757718
+--- !u!1 &3172274614574003154
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5457899712219648078}
-  - component: {fileID: 6806483462848646306}
+  - component: {fileID: 5728801979665585498}
+  - component: {fileID: 8663800383401611254}
   m_Layer: 0
-  m_Name: BomberGfx
+  m_Name: KnifeGfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5457899712219648078
+--- !u!4 &5728801979665585498
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1016980029287757718}
+  m_GameObject: {fileID: 3172274614574003154}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.522, y: 0, z: 0}
+  m_LocalScale: {x: 1.3707, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8382954884267362462}
+  m_Father: {fileID: 4599007325152536532}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6806483462848646306
+--- !u!212 &8663800383401611254
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1016980029287757718}
+  m_GameObject: {fileID: 3172274614574003154}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -73,18 +73,18 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0bcf900edc293ce428ddaba390283086, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 125e878cb013a42419a78d4a8910bf65, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.4, y: 0.15}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &8382954884267362463
+--- !u!1 &4599007325152536533
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,49 +92,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8382954884267362462}
-  - component: {fileID: 8382954884267362460}
+  - component: {fileID: 4599007325152536532}
+  - component: {fileID: 4599007325152536534}
   m_Layer: 0
-  m_Name: Quadbomber
+  m_Name: Knife
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8382954884267362462
+--- !u!4 &4599007325152536532
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8382954884267362463}
+  m_GameObject: {fileID: 4599007325152536533}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 0.9640747, y: 1.4315604, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8382954884486068213}
-  - {fileID: 5457899712219648078}
+  - {fileID: 4599007325337540799}
+  - {fileID: 5728801979665585498}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8382954884267362460
+--- !u!114 &4599007325152536534
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8382954884267362463}
+  m_GameObject: {fileID: 4599007325152536533}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b97c67c7f2b07794696db0f7da43e740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 788417675530105716, guid: 2660ebb705316ca4b8eb3eb12aa37f8d, type: 3}
-  firerate: 0.2
-  bulletSpread: 40
-  bulletAmount: 4
---- !u!1 &8382954884486068214
+  bullet: {fileID: 788417675530105716, guid: 9083f344e0effac4c9be3c602d01adfd, type: 3}
+  firerate: 2
+  bulletSpread: 0
+  bulletAmount: 1
+--- !u!1 &4599007325337540796
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8382954884486068213}
+  - component: {fileID: 4599007325337540799}
   m_Layer: 0
   m_Name: BulletSpawn
   m_TagString: Untagged
@@ -150,18 +150,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8382954884486068213
+--- !u!4 &4599007325337540799
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8382954884486068214}
+  m_GameObject: {fileID: 4599007325337540796}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.728, y: 0.025, z: 0}
+  m_LocalPosition: {x: 0.963, y: 0.045, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8382954884267362462}
+  m_Father: {fileID: 4599007325152536532}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
