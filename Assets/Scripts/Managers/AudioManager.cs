@@ -97,6 +97,11 @@ public class AudioManager : MonoBehaviour
         Slider[] onlyInactiveSliders = FindObjectsByType<Slider>(FindObjectsInactive.Include, FindObjectsSortMode.None).Where(sr => !sr.gameObject.activeInHierarchy).ToArray();
         volumeMusicSlider = onlyInactiveSliders.First(slider => slider.gameObject.name == "MusicSlider");
         volumeSoundSlider = onlyInactiveSliders.First(slider => slider.gameObject.name == "SfxSlider");
+
+        volumeMusicSlider.onValueChanged.AddListener(SetMusicVolume);
+        volumeSoundSlider.onValueChanged.AddListener(SetSoundVolume);
+
+        Load();
     }
 
 }
