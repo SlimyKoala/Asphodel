@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using System.Linq;
 
 public class AudioManager : MonoBehaviour
 {
@@ -93,10 +94,9 @@ public class AudioManager : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
-        Debug.Log(GameObject.Find("MusicSlider"));
-        Debug.Log(GameObject.Find("SfxSlider"));
-        volumeMusicSlider = GameObject.Find("MusicSlider").GetComponent<Slider>();
-        volumeSoundSlider = GameObject.Find("SfxSlider").GetComponent<Slider>();
+        Slider[] onlyInactiveSliders = FindObjectsByType<Slider>(FindObjectsInactive.Include, FindObjectsSortMode.None).Where(sr => !sr.gameObject.activeInHierarchy).ToArray();
+        volumeMusicSlider = onlyInactiveSliders.First(slider => slider.gameObject.name == "MusicSlider");
+        volumeSoundSlider = onlyInactiveSliders.First(slider => slider.gameObject.name == "SfxSlider");
     }
 
 }
