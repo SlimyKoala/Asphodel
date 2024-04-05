@@ -16339,7 +16339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accelerationCoef: 1
   frictionCoef: 0.92
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 612866083}
 --- !u!61 &2093610687
 BoxCollider2D:
   m_ObjectHideFlags: 0

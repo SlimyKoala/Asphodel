@@ -8689,46 +8689,46 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
-    audioMixerGroup: {fileID: 0}
+    audioMixerGroup: {fileID: -8494811595582287244, guid: e4a5b2c4cc3b0284f83e4699b7030303, type: 2}
     source: {fileID: 0}
   - name: damage
     clip: {fileID: 8300000, guid: 8b57fff161306994eba256dae8d18d20, type: 3}
     volume: 1
     pitch: 1
     loop: 0
-    audioMixerGroup: {fileID: 0}
+    audioMixerGroup: {fileID: -8494811595582287244, guid: e4a5b2c4cc3b0284f83e4699b7030303, type: 2}
     source: {fileID: 0}
   - name: explosion
     clip: {fileID: 8300000, guid: c4347b00d73267447abc4a5231ef99e5, type: 3}
     volume: 1
     pitch: 0.5
     loop: 0
-    audioMixerGroup: {fileID: 0}
+    audioMixerGroup: {fileID: -8494811595582287244, guid: e4a5b2c4cc3b0284f83e4699b7030303, type: 2}
     source: {fileID: 0}
   - name: death
     clip: {fileID: 8300000, guid: 1718824e64743994da070b639b9b6c4d, type: 3}
     volume: 1
     pitch: 0.3
     loop: 0
-    audioMixerGroup: {fileID: 0}
+    audioMixerGroup: {fileID: -8494811595582287244, guid: e4a5b2c4cc3b0284f83e4699b7030303, type: 2}
     source: {fileID: 0}
   - name: spawn
     clip: {fileID: 8300000, guid: f74fbe5b0d4e31e41be9fa05be593459, type: 3}
     volume: 1
     pitch: 0.3
     loop: 0
-    audioMixerGroup: {fileID: 0}
+    audioMixerGroup: {fileID: -8494811595582287244, guid: e4a5b2c4cc3b0284f83e4699b7030303, type: 2}
     source: {fileID: 0}
   - name: music
     clip: {fileID: 8300000, guid: 1a391f3ae9fc3cb4ab53357558c2f0da, type: 3}
     volume: 1
     pitch: 1
     loop: 1
-    audioMixerGroup: {fileID: 0}
+    audioMixerGroup: {fileID: -7206616121532014572, guid: e4a5b2c4cc3b0284f83e4699b7030303, type: 2}
     source: {fileID: 0}
-  volumeMusicSlider: {fileID: 0}
-  volumeSoundSlider: {fileID: 0}
-  audioMixer: {fileID: 0}
+  volumeMusicSlider: {fileID: 531542071}
+  volumeSoundSlider: {fileID: 1770618148}
+  audioMixer: {fileID: 24100000, guid: e4a5b2c4cc3b0284f83e4699b7030303, type: 2}
 --- !u!4 &2030561305
 Transform:
   m_ObjectHideFlags: 0
@@ -8753,7 +8753,7 @@ AudioSource:
   m_GameObject: {fileID: 2030561303}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7206616121532014572, guid: e4a5b2c4cc3b0284f83e4699b7030303, type: 2}
   m_audioClip: {fileID: 8300000, guid: 1a391f3ae9fc3cb4ab53357558c2f0da, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.2
