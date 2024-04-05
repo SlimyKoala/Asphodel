@@ -45,20 +45,15 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-
         if (!PlayerPrefs.HasKey("musicVolume"))
         {
             PlayerPrefs.SetFloat("musicVolume", 1);
-            Debug.Log("musicVolume");
         }
         if (!PlayerPrefs.HasKey("soundVolume"))
         {
             PlayerPrefs.SetFloat("soundVolume", 1);
-            Debug.Log("soundVolume");
         }
         Load();
-
-
     }
 
 
@@ -99,14 +94,12 @@ public class AudioManager : MonoBehaviour
         Slider[] onlyInactiveSliders = FindObjectsByType<Slider>(FindObjectsInactive.Include, FindObjectsSortMode.None).Where(sr => !sr.gameObject.activeInHierarchy).ToArray();
         volumeMusicSlider = onlyInactiveSliders.First(slider => slider.gameObject.name == "MusicSlider");
         volumeSoundSlider = onlyInactiveSliders.First(slider => slider.gameObject.name == "SfxSlider");
-
-        Debug.Log(volumeMusicSlider);
-        Debug.Log(volumeSoundSlider);
+        Load();
 
         volumeMusicSlider.onValueChanged.AddListener(SetMusicVolume);
         volumeSoundSlider.onValueChanged.AddListener(SetSoundVolume);
 
-        Load();
+        
     }
 
 }
