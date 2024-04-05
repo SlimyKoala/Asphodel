@@ -3,18 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyAiMelee : MonoBehaviour
 {
     [SerializeField] Transform target;
     [SerializeField] Transform pathfindingTarget;
     [SerializeField] float detectionRange = 50;
-    [SerializeField] float firingRange = 20;
+    [SerializeField] float attackingRange = 3;
 
     AIDestinationSetter aiDestinationSetter;
     AIPath aiPath;
-
-    [SerializeField] Shooting weapon;
-
     bool canSeeTarget;
 
     private void Awake()
@@ -25,18 +22,26 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.Find("Rat").transform;
+        if (GameObject.Find("Rat") != null)
+        {
+            target = GameObject.Find("Rat").transform;
+        }
+        
         aiDestinationSetter = GetComponent<AIDestinationSetter>();
         aiDestinationSetter.target = pathfindingTarget;
 
         aiPath = GetComponent<AIPath>();
-        
+
         pathfindingTarget.position = transform.position;
         pathfindingTarget.SetParent(null);
+
+
     }
+
 
     private void FixedUpdate()
     {
+        if (target == null) return;
         Vector2 targetDirection = (target.position - transform.position).normalized;
 
         RaycastHit2D[] hitList = Physics2D.RaycastAll(transform.position, targetDirection * detectionRange);
@@ -55,10 +60,10 @@ public class EnemyAI : MonoBehaviour
             }
         }
 
-        if (canSeeTarget && (target.position - target.position).sqrMagnitude <= firingRange * firingRange)
-        {
-            ManageWeapon();
-        }
+        //if (canSeeTarget && (target.position - transform.position).sqrMagnitude <= attackingRange * attackingRange)
+        //{
+        //    ManageWeapon();
+        //}
 
         if (canSeeTarget)
         {
@@ -70,28 +75,33 @@ public class EnemyAI : MonoBehaviour
             Debug.DrawRay(transform.position, targetDirection * detectionRange, new Color(0.1f, 0.1f, 0.1f));
         }
 
+        transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = aiPath.velocity.x < 0;
+
     }
 
-    private void ManageWeapon()
+    private void OnDestroy()
     {
-        weapon.RotateTowardPoint(target.position);
-        weapon.Shoot();
+        EnemyEvents.scoreAdvancedEvent.Invoke(Random.Range(9, 13) * 10);
     }
 
     public void SetDamaged()
     {
         aiPath.enabled = false;
-        Invoke("UnsetDamaged", 1);
+        Invoke("ChangeActive", 1);
     }
 
-    public void UnsetDamaged()
+    private void ChangeActive()
     {
         aiPath.enabled = true;
     }
 
-    private void OnDestroy()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        EnemyEvents.scoreAdvancedEvent.Invoke(Random.Range(8, 12) * 10);
+        if (collision.transform == target)
+        {
+            target.GetComponent<HPController>().TakeDamage(20);
+            target.GetComponent<Rigidbody2D>().AddForce((target.position - transform.position).normalized * 1000);
+        }
     }
 
     private void ListenToTarget(Vector2 position)

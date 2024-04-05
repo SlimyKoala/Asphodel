@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuButtons : MonoBehaviour
 {
+    private void Start()
+    {
+        TimerManager.active.AddTimer(1, null);
+    }
     public void StartGame()
     {
         SceneManager.LoadScene(1);

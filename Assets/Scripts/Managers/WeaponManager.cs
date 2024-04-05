@@ -28,6 +28,10 @@ public class WeaponManager : MonoBehaviour
 
     private void Update()
     {
+        if (PauseMenu.isGamePaused)
+        {
+            return;
+        }
         Vector2 mousePointIngame = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         currentGun.RotateTowardPoint(mousePointIngame);
